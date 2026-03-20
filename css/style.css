@@ -1,0 +1,340 @@
+/* style.css - CivicEye Design System */
+
+:root {
+    /* Primary Colors */
+    --navy: #1A2744;
+    --civic-orange: #FF4500;
+    --snow: #F5F7FA;
+
+    /* Navy Shades */
+    --deep-navy: #0F1A30;
+    --mid-navy: #243560;
+    --slate: #2D3748;
+
+    /* Orange Shades */
+    --deep-orange: #CC3800;
+    --light-orange: #FF6B35;
+
+    /* Neutrals */
+    --steel: #4A5568;
+    --muted: #718096;
+    --silver: #A0AEC0;
+    --cloud: #CBD5E0;
+    --frost: #EDF2F7;
+
+    /* Status Colors */
+    --status-resolved: #38A169;
+    --status-in-progress: #3182CE;
+    --status-pending: #D69E2E;
+    --status-urgent: #E53E3E;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--snow);
+    color: var(--slate);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--navy);
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--civic-orange);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--deep-orange);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--navy);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    margin-left: 1.5rem;
+    font-weight: 500;
+}
+
+.navbar .nav-links a:hover {
+    color: var(--civic-orange);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: var(--civic-orange);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    /* Rounded corners */
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--deep-orange);
+    color: #fff;
+}
+
+.btn:active {
+    transform: translateY(2px);
+}
+
+.btn-secondary {
+    background-color: var(--mid-navy);
+}
+
+.btn-secondary:hover {
+    background-color: var(--deep-navy);
+}
+
+/* Containers & Layouts */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Cards (Modern card-based layout) */
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* Soft shadow */
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-meta {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+/* Badges for Status */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-resolved {
+    background-color: var(--status-resolved);
+}
+
+.badge-in-progress {
+    background-color: var(--status-in-progress);
+}
+
+.badge-pending {
+    background-color: var(--status-pending);
+}
+
+.badge-urgent {
+    background-color: var(--status-urgent);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--navy);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--cloud);
+    border-radius: 8px;
+    /* Clean inputs */
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--civic-orange);
+    /* Focus highlight */
+    box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    padding-right: 40px;
+}
+
+.eye-toggle {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.eye-toggle:hover {
+    color: var(--navy);
+}
+
+.form-text {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+}
+
+.alert {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.alert-danger {
+    background-color: #FED7D7;
+    color: var(--status-urgent);
+    border: 1px solid #FEB2B2;
+}
+
+.alert-success {
+    background-color: #C6F6D5;
+    color: var(--status-resolved);
+    border: 1px solid #9AE6B4;
+}
+
+/* Footer */
+footer {
+    background-color: var(--navy);
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+}
+
+/* Grid for Dashboard */
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.report-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Auth Pages */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px);
+    padding: 2rem 0;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 450px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .navbar .nav-links a {
+        margin-left: 0;
+    }
+}
