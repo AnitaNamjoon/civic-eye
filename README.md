@@ -1,14 +1,14 @@
-CivicEye – Community Reporting System
+🕵️‍♀️ CivicEye – Community Reporting System
 
-User registration (name, email, password)
+Register with name, email & password
 
-User login & logout
+Login & logout
 
 Option for anonymous reporting
 
-2. Report System
+📝 Report System
 
-Users can create a report with:
+Submit reports with:
 
 Title
 
@@ -16,39 +16,39 @@ Description
 
 Issue type (pothole, crime, hazard, etc.)
 
-Upload images/videos
+Upload images/videos 📷
 
-GPS location (latitude & longitude or manual input)
+GPS location 🌍 (latitude/longitude or manual input)
 
-Timestamps are saved automatically
+Timestamp is saved automatically 🕒
 
-3. Report Management
+📊 Report Management
 
 Dashboard to view all reports
 
-Show report status: Pending, In Progress, Resolved, Urgent
+Report status: Pending, In Progress, Resolved, Urgent
 
 Update report status
 
-4. Multimedia Support
+🖼 Multimedia Support
 
-Upload and store images/videos in a folder (/uploads)
+Upload images/videos in /uploads
 
-Save file paths in the database
+Store file paths in database
 
-5. Location System
+📍 Location System
 
-Store GPS coordinates in the database
+Store GPS coordinates in database
 
-Display location as text or integrate a simple map (optional)
+Optional: display a simple map 🗺
 
-Project Structure
+🗂 Project Structure
 /civic-eye
   /css
-    styles.css
+    styles.css       # Styles for UI
   /js
-    scripts.js
-  /uploads       # Stores images/videos
+    scripts.js       # JavaScript for forms & validation
+  /uploads           # Store images/videos here
   /includes
     header.php
     footer.php
@@ -57,10 +57,10 @@ Project Structure
   register.php
   dashboard.php
   submit_report.php
-  config.php     # Database connection
-Database Setup (MySQL via XAMPP)
+  config.php         # Database connection
+🗃 Database Setup (MySQL via XAMPP)
 SQL Tables
--- 1. Users table
+-- Users Table
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- 2. Reports table
+-- Reports Table
 CREATE TABLE reports (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -81,7 +81,7 @@ CREATE TABLE reports (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
--- 3. Media table
+-- Media Table
 CREATE TABLE media (
     id INT AUTO_INCREMENT PRIMARY KEY,
     report_id INT,
@@ -90,7 +90,7 @@ CREATE TABLE media (
     FOREIGN KEY (report_id) REFERENCES reports(id)
 );
 
--- 4. Location table
+-- Location Table
 CREATE TABLE location (
     id INT AUTO_INCREMENT PRIMARY KEY,
     report_id INT,
@@ -98,43 +98,41 @@ CREATE TABLE location (
     longitude DECIMAL(11,8),
     FOREIGN KEY (report_id) REFERENCES reports(id)
 );
-XAMPP Setup Instructions
+⚡ XAMPP Setup Instructions
 
-Install XAMPP
+Install XAMPP 🛠
 
 Download from https://www.apachefriends.org
 
-Install it on your system
+Follow installation steps
 
-Start Apache & MySQL
+Start Apache & MySQL ▶
 
 Open XAMPP Control Panel
 
-Click Start for Apache and MySQL
+Click Start for Apache & MySQL
 
-Open phpMyAdmin
+Open phpMyAdmin 💻
 
 Go to http://localhost/phpmyadmin
 
-Create Database
+Create Database 🗄
 
 Click New, name it civic_eye
 
-Run SQL Scripts
+Run SQL Scripts ⌨️
 
-Go to the SQL tab in phpMyAdmin
+Copy & paste table scripts above into SQL tab and execute
 
-Copy-paste the table creation scripts and execute
+Place Project Files 📂
 
-Place Project Files
+Move civic-eye folder to htdocs
 
-Move your project folder civic-eye into the htdocs folder of XAMPP
+Access Project in Browser 🌐
 
-Access Project in Browser
+Open http://localhost/civic-eye
 
-Visit http://localhost/civic-eye
-
-PHP Backend
+🛠 PHP Backend
 
 Database Connection (config.php)
 
@@ -151,62 +149,62 @@ if($conn->connect_error){
 }
 ?>
 
-CRUD Operations
+CRUD Operations:
 
-Create report
+Create report 📝
 
-Read reports
+Read reports 📊
 
-Update status
+Update status 🔄
 
-Upload files
+Upload files 📂
 
-Validation & Error Handling
+Validation & Error Handling:
 
-Check required fields before submitting
+Ensure all required fields are filled
 
-Ensure file types are allowed (images/videos)
+Validate file types (images/videos)
 
-Frontend
+🎨 Frontend
 
 Clean UI with CSS
 
 Forms for:
 
-Registration (register.php)
+Registration 📝
 
-Login (login.php)
+Login 🔑
 
-Report submission (submit_report.php)
+Report Submission 📝
 
-Dashboard (dashboard.php) to view reports
+Dashboard to view all reports 📊
 
-JavaScript
+JavaScript for:
 
-Form validation
+Form validation ✅
 
-Optional: dynamic updates without page reload
+Optional: dynamic updates without reload 🔄
 
-Data Flow (Simplified)
+🔄 Data Flow (Simplified)
 
-User → Form: User submits registration/login/report form
+User → Form 📝: User submits form
 
-Form → PHP: Form data sent to PHP using POST
+Form → PHP 💻: Data sent using POST
 
-PHP → Database: PHP validates data, performs queries
+PHP → Database 🗄: Data stored in MySQL
 
-Database → PHP: PHP retrieves data for dashboard or status updates
+Database → PHP 💻: PHP retrieves data
 
-PHP → Frontend: PHP generates HTML to display results
+PHP → Frontend 🌐: Display results in dashboard
 
-Usage
+🚀 Usage
 
 Open http://localhost/civic-eye in your browser
 
-Register a new user or log in
+Register or login
 
-Submit a report with details and optional media
+Submit a report with details & optional media 📷
 
-View all reports in the dashboard
+View reports in the dashboard
 
-Update report status if you are an admin or assigned user
+Update report status (if authorized) 🔄
